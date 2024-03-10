@@ -34,7 +34,7 @@ public class ParkingLot {
         return parkingLot;
     }
 
-    public void addFloors(String name,Map<ParkingSlotType, Map<String, ParkingSlot>> parkSlots){
+    public void addFloors(String name,Map<ParkingSlotType, List<ParkingSlot>> parkSlots){
        ParkingFloor parkingFloor= new ParkingFloor(name,parkSlots);
        parkingFloor.add(parkingFloor);
     }

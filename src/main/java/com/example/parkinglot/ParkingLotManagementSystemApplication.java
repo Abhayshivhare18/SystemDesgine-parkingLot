@@ -23,25 +23,25 @@ public class ParkingLotManagementSystemApplication {
 		String nameOfParkingLot ="Abhay Parking Lot";
 		Address address = Address.builder().city("Bhopal").country("India").
 				state("MP").build();
-		Map<ParkingSlotType, Map<String,ParkingSlot>> allSlots = new HashMap<>();
+		Map<ParkingSlotType, List<ParkingSlot>> allSlots = new HashMap<>();
 
-		Map<String,ParkingSlot> smallSlot = new HashMap<>();
-		smallSlot.put("S1",new ParkingSlot("S1",ParkingSlotType.TwoWheeler));
-		smallSlot.put("S2",new ParkingSlot("S2",ParkingSlotType.TwoWheeler));
-		smallSlot.put("S3",new ParkingSlot("S3",ParkingSlotType.TwoWheeler));
+		List<ParkingSlot> smallSlot = new ArrayList<>();
+		smallSlot.add(new ParkingSlot("S1",ParkingSlotType.TwoWheeler));
+		smallSlot.add(new ParkingSlot("S2",ParkingSlotType.TwoWheeler));
+		smallSlot.add(new ParkingSlot("S3",ParkingSlotType.TwoWheeler));
 		allSlots.put(ParkingSlotType.TwoWheeler,smallSlot);
 
-		Map<String,ParkingSlot>  mediumSlot = new HashMap<>();
-		mediumSlot.put("m1",new ParkingSlot("m1",ParkingSlotType.Medium));
-		mediumSlot.put("m2",new ParkingSlot("m2",ParkingSlotType.Medium));
-		mediumSlot.put("m2",new ParkingSlot("m2",ParkingSlotType.Medium));
+		List<ParkingSlot>  mediumSlot = new ArrayList<>();
+		mediumSlot.add(new ParkingSlot("m1",ParkingSlotType.Medium));
+		mediumSlot.add(new ParkingSlot("m2",ParkingSlotType.Medium));
+		mediumSlot.add(new ParkingSlot("m2",ParkingSlotType.Medium));
 		allSlots.put(ParkingSlotType.Medium,mediumSlot);
 
 
-		Map<String,ParkingSlot> largeSlot = new HashMap<>();
-		largeSlot.put("l1",new ParkingSlot("l1",ParkingSlotType.Large));
-		largeSlot.put("l2",new ParkingSlot("l2",ParkingSlotType.Large));
-		largeSlot.put("l3",new ParkingSlot("l3",ParkingSlotType.Large));
+		List<ParkingSlot> largeSlot = new ArrayList<>();
+		largeSlot.add(new ParkingSlot("l1",ParkingSlotType.Large));
+		largeSlot.add(new ParkingSlot("l2",ParkingSlotType.Large));
+		largeSlot.add(new ParkingSlot("l3",ParkingSlotType.Large));
         allSlots.put(ParkingSlotType.Large,largeSlot);
 
 		ParkingFloor parkingFloorOne = new ParkingFloor("1",allSlots);
