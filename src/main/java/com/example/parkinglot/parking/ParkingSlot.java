@@ -1,7 +1,7 @@
 package com.example.parkinglot.parking;
 
-import com.example.parkinglot.parking.Model.Enum.ParkingSlotType;
-import com.example.parkinglot.parking.Model.Vehicle;
+import com.example.parkinglot.parking.model.Enum.ParkingSlotType;
+import com.example.parkinglot.parking.model.Vehicle;
 import lombok.Builder;
 import lombok.Data;
 

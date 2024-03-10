@@ -1,10 +1,10 @@
 package com.example.parkinglot;
 
-import com.example.parkinglot.parking.Model.Address;
-import com.example.parkinglot.parking.Model.Enum.ParkingSlotType;
-import com.example.parkinglot.parking.Model.Enum.VehicleCategory;
-import com.example.parkinglot.parking.Model.Ticket;
-import com.example.parkinglot.parking.Model.Vehicle;
+import com.example.parkinglot.parking.model.Address;
+import com.example.parkinglot.parking.model.Enum.ParkingSlotType;
+import com.example.parkinglot.parking.model.Enum.VehicleCategory;
+import com.example.parkinglot.parking.model.Ticket;
+import com.example.parkinglot.parking.model.Vehicle;
 import com.example.parkinglot.parking.ParkingFloor;
 import com.example.parkinglot.parking.ParkingLot;
 import com.example.parkinglot.parking.ParkingSlot;
@@ -64,7 +64,7 @@ public class ParkingLotManagementSystemApplication {
 		Ticket ticket = parkingLot.assignTicket(vehicle);
 		System.out.println("Ticket number >>" + ticket.getTicketNumber());
 		//persist the ticket to db here
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		double price = parkingLot.pay(ticket);
 		System.out.println("price is >>"+ price);
 

@@ -1,8 +1,8 @@
 package com.example.parkinglot.parking;
 
-import com.example.parkinglot.parking.Model.Enum.ParkingSlotType;
-import com.example.parkinglot.parking.Model.Vehicle;
-import com.example.parkinglot.parking.Model.Enum.VehicleCategory;
+import com.example.parkinglot.parking.model.Enum.ParkingSlotType;
+import com.example.parkinglot.parking.model.Vehicle;
+import com.example.parkinglot.parking.model.Enum.VehicleCategory;
 
 import java.util.Map;
 
