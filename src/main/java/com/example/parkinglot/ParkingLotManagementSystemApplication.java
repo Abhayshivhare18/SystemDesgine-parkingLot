@@ -1,13 +1,13 @@
 package com.example.parkinglot;
 
-import com.example.parkinglot.parking.model.Address;
-import com.example.parkinglot.parking.model.Enum.ParkingSlotType;
-import com.example.parkinglot.parking.model.Enum.VehicleCategory;
-import com.example.parkinglot.parking.model.Ticket;
-import com.example.parkinglot.parking.model.Vehicle;
-import com.example.parkinglot.parking.ParkingFloor;
-import com.example.parkinglot.parking.ParkingLot;
-import com.example.parkinglot.parking.ParkingSlot;
+import com.example.parkinglot.model.Address;
+import com.example.parkinglot.model.Enum.ParkingSlotType;
+import com.example.parkinglot.model.Enum.VehicleCategory;
+import com.example.parkinglot.model.Ticket;
+import com.example.parkinglot.model.Vehicle;
+import com.example.parkinglot.service.ParkingFloorImpl;
+import com.example.parkinglot.service.ParkingLotImpl;
+import com.example.parkinglot.service.ParkingSlotImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -23,49 +23,49 @@ public class ParkingLotManagementSystemApplication {
 		String nameOfParkingLot ="Abhay Parking Lot";
 		Address address = Address.builder().city("Bhopal").country("India").
 				state("MP").build();
-		Map<ParkingSlotType, List<ParkingSlot>> allSlots = new HashMap<>();
+		Map<ParkingSlotType, List<ParkingSlotImpl>> allSlots = new HashMap<>();
 
-		List<ParkingSlot> smallSlot = new ArrayList<>();
-		smallSlot.add(new ParkingSlot("S1",ParkingSlotType.TwoWheeler));
-		smallSlot.add(new ParkingSlot("S2",ParkingSlotType.TwoWheeler));
-		smallSlot.add(new ParkingSlot("S3",ParkingSlotType.TwoWheeler));
+		List<ParkingSlotImpl> smallSlot = new ArrayList<>();
+		smallSlot.add(new ParkingSlotImpl("S1",ParkingSlotType.TwoWheeler));
+		smallSlot.add(new ParkingSlotImpl("S2",ParkingSlotType.TwoWheeler));
+		smallSlot.add(new ParkingSlotImpl("S3",ParkingSlotType.TwoWheeler));
 		allSlots.put(ParkingSlotType.TwoWheeler,smallSlot);
 
-		List<ParkingSlot>  mediumSlot = new ArrayList<>();
-		mediumSlot.add(new ParkingSlot("m1",ParkingSlotType.Medium));
-		mediumSlot.add(new ParkingSlot("m2",ParkingSlotType.Medium));
-		mediumSlot.add(new ParkingSlot("m2",ParkingSlotType.Medium));
+		List<ParkingSlotImpl>  mediumSlot = new ArrayList<>();
+		mediumSlot.add(new ParkingSlotImpl("m1",ParkingSlotType.Medium));
+		mediumSlot.add(new ParkingSlotImpl("m2",ParkingSlotType.Medium));
+		mediumSlot.add(new ParkingSlotImpl("m2",ParkingSlotType.Medium));
 		allSlots.put(ParkingSlotType.Medium,mediumSlot);
 
 
-		List<ParkingSlot> largeSlot = new ArrayList<>();
-		largeSlot.add(new ParkingSlot("l1",ParkingSlotType.Large));
-		largeSlot.add(new ParkingSlot("l2",ParkingSlotType.Large));
-		largeSlot.add(new ParkingSlot("l3",ParkingSlotType.Large));
+		List<ParkingSlotImpl> largeSlot = new ArrayList<>();
+		largeSlot.add(new ParkingSlotImpl("l1",ParkingSlotType.Large));
+		largeSlot.add(new ParkingSlotImpl("l2",ParkingSlotType.Large));
+		largeSlot.add(new ParkingSlotImpl("l3",ParkingSlotType.Large));
         allSlots.put(ParkingSlotType.Large,largeSlot);
 
-		ParkingFloor parkingFloorOne = new ParkingFloor("1",allSlots);
-		ParkingFloor parkingFloorTwo = new ParkingFloor("2",allSlots);
-		ParkingFloor parkingFloorThree = new ParkingFloor("3",allSlots);
-		ParkingFloor parkingFloorFour = new ParkingFloor("4",allSlots);
+		ParkingFloorImpl parkingFloorImplOne = new ParkingFloorImpl("1",allSlots);
+		ParkingFloorImpl parkingFloorImplTwo = new ParkingFloorImpl("2",allSlots);
+		ParkingFloorImpl parkingFloorImplThree = new ParkingFloorImpl("3",allSlots);
+		ParkingFloorImpl parkingFloorImplFour = new ParkingFloorImpl("4",allSlots);
 
-		List<ParkingFloor> parkingFloors = new ArrayList<>();
-		parkingFloors.add(parkingFloorOne);
-		parkingFloors.add(parkingFloorTwo);
-		parkingFloors.add(parkingFloorThree);
-		parkingFloors.add(parkingFloorFour);
+		List<ParkingFloorImpl> parkingFloorImpls = new ArrayList<>();
+		parkingFloorImpls.add(parkingFloorImplOne);
+		parkingFloorImpls.add(parkingFloorImplTwo);
+		parkingFloorImpls.add(parkingFloorImplThree);
+		parkingFloorImpls.add(parkingFloorImplFour);
 
-		ParkingLot parkingLot = ParkingLot.getInstance(nameOfParkingLot,address,parkingFloors);
+		ParkingLotImpl parkingLotImpl = ParkingLotImpl.getInstance(nameOfParkingLot,address, parkingFloorImpls);
 
 		Vehicle vehicle = new Vehicle();
 		vehicle.setVehicleCategory(VehicleCategory.Truck);
 		vehicle.setVehicleNumber("MP-01-MA-1001");
 
-		Ticket ticket = parkingLot.assignTicket(vehicle);
+		Ticket ticket = parkingLotImpl.assignTicket(vehicle);
 		System.out.println("Ticket number >>" + ticket.getTicketNumber());
 		//persist the ticket to db here
 		Thread.sleep(1000);
-		double price = parkingLot.pay(ticket);
+		double price = parkingLotImpl.pay(ticket);
 		System.out.println("price is >>"+ price);
 
 

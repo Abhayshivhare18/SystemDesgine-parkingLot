@@ -1,28 +1,28 @@
-package com.example.parkinglot.parking;
+package com.example.parkinglot.service;
 
-import com.example.parkinglot.parking.model.Enum.ParkingSlotType;
-import com.example.parkinglot.parking.model.Vehicle;
-import com.example.parkinglot.parking.model.Enum.VehicleCategory;
+import com.example.parkinglot.model.Enum.ParkingSlotType;
+import com.example.parkinglot.model.Vehicle;
+import com.example.parkinglot.model.Enum.VehicleCategory;
 
 import java.util.List;
 import java.util.Map;
 
-public class ParkingFloor {
+public class ParkingFloorImpl {
     String name;
-    Map<ParkingSlotType, List<ParkingSlot>> parkingSlots;
-    public ParkingFloor(String name, Map<ParkingSlotType, List<ParkingSlot>> parkingSlots) {
+    Map<ParkingSlotType, List<ParkingSlotImpl>> parkingSlots;
+    public ParkingFloorImpl(String name, Map<ParkingSlotType, List<ParkingSlotImpl>> parkingSlots) {
         this.name = name;
         this.parkingSlots = parkingSlots;
     }
 
-    public ParkingSlot getRelevantSlotForVehicleAndPark(Vehicle vehicle){
+    public ParkingSlotImpl getRelevantSlotForVehicleAndPark(Vehicle vehicle){
         VehicleCategory vehicleCategory=vehicle.getVehicleCategory();
         ParkingSlotType parkingSlotType =pickCorrectSlot(vehicleCategory);
-        List<ParkingSlot> relevantParkingSlot=parkingSlots.get(parkingSlotType);
-        ParkingSlot slot= null;
-         for(ParkingSlot parkingSlot:relevantParkingSlot){
-             if(parkingSlot.isAvailable){
-                 slot= parkingSlot;
+        List<ParkingSlotImpl> relevantParkingSlotImpl =parkingSlots.get(parkingSlotType);
+        ParkingSlotImpl slot= null;
+         for(ParkingSlotImpl parkingSlotImpl : relevantParkingSlotImpl){
+             if(parkingSlotImpl.isAvailable){
+                 slot= parkingSlotImpl;
                  slot.addVehicle(vehicle);
                  break;
              }
@@ -41,7 +41,7 @@ public class ParkingFloor {
     }
 
 
-    public void add(ParkingFloor parkingFloor) {
+    public void add(ParkingFloorImpl parkingFloorImpl) {
 
     }
 }

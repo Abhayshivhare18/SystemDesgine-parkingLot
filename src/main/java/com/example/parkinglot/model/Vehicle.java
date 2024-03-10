@@ -1,7 +1,7 @@
-package com.example.parkinglot.parking.Model;
+package com.example.parkinglot.model;
 
 
-import com.example.parkinglot.parking.Model.Enum.VehicleCategory;
+import com.example.parkinglot.model.Enum.VehicleCategory;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

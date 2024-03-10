@@ -1,19 +1,19 @@
-package com.example.parkinglot.parking;
+package com.example.parkinglot.service;
 
-import com.example.parkinglot.parking.model.Enum.ParkingSlotType;
-import com.example.parkinglot.parking.model.Vehicle;
+import com.example.parkinglot.model.Enum.ParkingSlotType;
+import com.example.parkinglot.model.Vehicle;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
-public class ParkingSlot {
+public class ParkingSlotImpl {
     String name;
     @Builder.Default
     boolean isAvailable =true;
     Vehicle vehicle;
     ParkingSlotType parkingSlotType;
 
-    public ParkingSlot(String name, ParkingSlotType parkingSlotType) {
+    public ParkingSlotImpl(String name, ParkingSlotType parkingSlotType) {
         this.name = name;
         this.parkingSlotType = parkingSlotType;
     }

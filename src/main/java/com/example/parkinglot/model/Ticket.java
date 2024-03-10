@@ -1,6 +1,6 @@
-package com.example.parkinglot.parking.Model;
+package com.example.parkinglot.model;
 
-import com.example.parkinglot.parking.ParkingSlot;
+import com.example.parkinglot.service.ParkingSlotImpl;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,11 +12,11 @@ public class Ticket {
     long startTime;
     long endTime;
     Vehicle vehicle;
-    ParkingSlot parkingSlot;
+    ParkingSlotImpl parkingSlotImpl;
 
-    public static Ticket createTicket(Vehicle vehicle, ParkingSlot parkingSlot){
+    public static Ticket createTicket(Vehicle vehicle, ParkingSlotImpl parkingSlotImpl){
         return Ticket.builder()
-                .parkingSlot(parkingSlot)
+                .parkingSlotImpl(parkingSlotImpl)
                 .startTime(System.currentTimeMillis())
                 .vehicle(vehicle)
                 .ticketNumber(vehicle.getVehicleNumber()+System.currentTimeMillis())

@@ -1,4 +1,4 @@
-package com.example.parkinglot.parking.Model.Enum;
+package com.example.parkinglot.model.Enum;
 
 public enum ParkingSlotType {
     TwoWheeler{

@@ -1,4 +1,4 @@
-package com.example.parkinglot.parking.Model;
+package com.example.parkinglot.model;
 
 
 import lombok.Builder;
